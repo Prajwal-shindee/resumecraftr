@@ -42,7 +42,7 @@ export default  ({changePreview,preview}:{changePreview?:any,preview?:boolean})=
      <Link to='/'>
      <h1 className="logo">
          <p>Resume</p>
-         <p>Builder</p>
+         <p>Craftr</p>
        </h1>
      </Link>
    
