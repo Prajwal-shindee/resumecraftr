@@ -1,0 +1,24 @@
+.resume-templates{
+display: flex;
+gap:20px;
+flex-wrap: wrap;
+
+&>*{
+// transform: scale(.5);
+transform-origin: 0;
+display:flex;
+flex-wrap:wrap;
+place-content: center;
+
+img{
+    width:300px;
+    padding:6px;
+}
+}
+}
+
+.more{
+text-align: center;
+margin-left: 100px;
+font-size:13px;
+}

@@ -1,0 +1,45 @@
+#resume.resume-buillder-template{
+    // width:400px;
+    // min-height:600px;
+    width:500px;
+    height: 743px;
+    overflow:hidden;
+    padding:40px;
+    margin:auto;
+    background:#fff;
+    
+}
+
+
+
+.cloned{
+    pointer-events: none;
+    user-select: none;
+    // opacity:.6;
+}
+
+.cloned-parent{
+    position:relative;
+    .icon--{
+        position:absolute;
+        cursor:pointer;
+        padding:6px;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 10px;
+        color:#fff;
+        background:#222;
+        border-radius: 30px;
+        top:-50px;
+
+        &.remove-icon{
+            transform:translateX(30px)
+        }
+
+        &:hover,&:focus{
+            opacity:.7
+        }
+    }
+}
+

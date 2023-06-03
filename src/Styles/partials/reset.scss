@@ -1,0 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+    // cursor:none !important
+  }  
+
+body {
+    background: var(--secondary-color);
+    color: var(--foreground-color);
+    font-family: var(--font-stack);
+  }
+  
+  a{
+    text-decoration: none;
+    color:inherit;
+  }

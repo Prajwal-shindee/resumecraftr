@@ -1,0 +1,32 @@
+{
+  "name": "resume-builderr",
+  "description": "Web app built with React,Typescript for creating resume easily with different templates and export to pdf easily",
+  "private": true,
+  "version": "1.1.3",
+  "scripts": {
+    "start": "vite --host",
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "gsap": "^3.10.4",
+    "html2canvas": "^1.4.1",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-icons": "^4.3.1",
+    "react-router-dom": "^6.3.0",
+    "react-to-pdf": "^0.0.14",
+    "swiper": "^8.2.4"
+  },
+  "devDependencies": {
+    "@types/gsap": "^3.0.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "@types/react-icons": "^3.0.0",
+    "@vitejs/plugin-react": "^1.3.0",
+    "sass": "^1.52.3",
+    "typescript": "^4.6.3",
+    "vite": "^3.0.0"
+  }
+}
