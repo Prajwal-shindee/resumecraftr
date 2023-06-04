@@ -90,7 +90,7 @@ gsap.to(".wheel", {
                </h2>
            </div>
 
-          <a href='https://github.com/Prajwal-shindee'> <div className="star">
+          <a href='https://github.com/Prajwal-shindee/resumecraftr.git'> <div className="star">
            <FaStar /> Star on Github <FaGithub />
             </div> </a>
        </header>
