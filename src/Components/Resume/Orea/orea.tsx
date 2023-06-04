@@ -21,7 +21,7 @@ const SectionRule = ({name,edit}:{name:string,edit:boolean})=>(
       <div className="orea" ref={el} >
   
        <div className="header">
-         <h1 className="head --primary-color" data-editable={edit} contentEditable={edit}>Keyur Vadher</h1>
+         <h1 className="head --primary-color" data-editable={edit} contentEditable={edit}>Prajwal Shinde</h1>
          <p className="role" data-editable={edit} contentEditable={edit}>Graphic Designer</p>
        </div>
   
@@ -48,7 +48,7 @@ const SectionRule = ({name,edit}:{name:string,edit:boolean})=>(
       
          <div className="contact">
         <span className="icon --primary-color"><FaTwitter className='--icon-color' color='red' /></span>
-         <span className="text" data-editable={edit} contentEditable={edit}>@originalTimi</span></div>
+         <span className="text" data-editable={edit} contentEditable={edit}>@Prajwal_shindee</span></div>
   
   
     </div>
