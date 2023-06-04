@@ -59,7 +59,7 @@ import { Resume, Clone } from '../Resume';
         <div className="about-intro">
         <div className="">
         <h1>
-            <p  data-editable={edit} contentEditable={edit}>JAMES KARY</p>
+            <p  data-editable={edit} contentEditable={edit}>PRAJWAL SHINDE</p>
             <p  data-editable={edit} contentEditable={edit}>GRAPHIC DESIGNER</p>
           </h1>
         </div>
@@ -179,7 +179,7 @@ import { Resume, Clone } from '../Resume';
       <div className="extra"  data-editable={edit} contentEditable>
         <h2 className="title">Projects</h2>
         <div className="int small">
-        <h3>Resume Builder</h3>
+        <h3>Resume Craftr</h3>
         
         <p className='small'>Web app built with React,Typescript for creating resume easily with different templates and export to pdf easily</p>
 
