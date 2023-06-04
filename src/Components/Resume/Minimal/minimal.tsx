@@ -8,7 +8,7 @@ export const Minimal = ({edit}:{edit:boolean}) => {
    <div className="r_header">
         <div className="r_basic-info">
           <h1 className="--r r__name --primary-color" data-editable={edit} contentEditable={edit}>
-            Osny Netto
+            Prajwal Shinde
           </h1>
           <h5 className="--r r__role" data-editable={edit} contentEditable={edit}>
             Frontend Developer
