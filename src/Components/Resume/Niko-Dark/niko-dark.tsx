@@ -24,8 +24,8 @@ import { Resume, Clone } from '../Resume';
   
                   <div className="info">
                     <h5 className="title" ><small>WEB:</small></h5>
-                    <p className='c-link'  data-editable={edit} contentEditable={edit} >www.timi.dev#about-me</p>
-                    <p className='c-link'  data-editable={edit} contentEditable={edit} >www.github.com/Timi-Leyin</p>
+                    <p className='c-link'  data-editable={edit} contentEditable={edit} >https://prajwal-shinde.netlify.app/#about-me</p>
+                    <p className='c-link'  data-editable={edit} contentEditable={edit} >https://github.com/Prajwal-shindee</p>
                   </div>
                 </div>
                 <div className="con">
