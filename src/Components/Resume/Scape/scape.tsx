@@ -73,7 +73,7 @@ export const Scape = ({edit}:{edit:boolean})=>{
       Block 23D5 ipsum dolor sit amet consectetur elit, Consectetur, impedit!, Nigeria
         </p>
        <div>
-       <p  data-editable={edit} contentEditable={edit}>email: hello@timi.dev</p>
+       <p  data-editable={edit} contentEditable={edit}>email: Prajwalshindeee@gmail.com</p>
        <p  data-editable={edit} contentEditable={edit}>call me: (234) 708 521 8197</p>
        </div>
       </div>
@@ -87,7 +87,7 @@ export const Scape = ({edit}:{edit:boolean})=>{
 
      <div className="head">
      <h2 className="name --primary-color" data-editable={edit} contentEditable={edit}>
-        Thomas A.Conwell
+        Prajwal Shinde
       </h2>
       <p className="role"  data-editable={edit} contentEditable={edit}>Senior Software Developer</p>
 
@@ -151,9 +151,9 @@ export const Scape = ({edit}:{edit:boolean})=>{
       <div className="">
         <div className="line-bottom --primary-bg"></div>
         <div className="bottom">
-          <p><b  data-editable={edit} contentEditable={edit}>My Resume </b> <span  data-editable={edit} contentEditable={edit}>Behance/Timi-Leyin</span></p>
+          <p><b  data-editable={edit} contentEditable={edit}>My Resume </b> <span  data-editable={edit} contentEditable={edit}>Behance/Prajwal Shinde</span></p>
         
-          <p><b  data-editable={edit} contentEditable={edit}>Facebook </b> <span  data-editable={edit} contentEditable={edit}>Facebook/Timi-Leyin</span></p>
+          <p><b  data-editable={edit} contentEditable={edit}>Facebook </b> <span  data-editable={edit} contentEditable={edit}>Facebook/Prajwal Shinde</span></p>
         
         </div>
       </div>
