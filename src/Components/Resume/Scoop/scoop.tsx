@@ -118,7 +118,7 @@ export const Scoop = ({edit }:{edit:boolean}) => {
         <h3 className="title --primary-color" data-editable={edit} contentEditable={edit}>Projects</h3>
        <Clone edit={edit}>
        <div className="REF" data-editable={edit} contentEditable={edit}>
-            <h4 className="r_name">RESUME BUILDER</h4>
+            <h4 className="r_name">RESUME CRAFTR</h4>
             <p className="text">
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste.
             </p>
