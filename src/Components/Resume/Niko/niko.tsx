@@ -178,7 +178,7 @@ export const Niko = ({edit}:{edit:boolean})=>{
       <div className="extra"  data-editable={edit} contentEditable>
         <h2 className="title">Projects</h2>
         <div className="int small">
-        <h3>Resume Builder</h3>
+        <h3>Resume Craftr</h3>
         
           <small className='small'>Web app built with React,Typescript for creating resume easily with different templates and export to pdf easily</small>
          
