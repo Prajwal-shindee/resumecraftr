@@ -8,7 +8,7 @@ export const Scoop = ({edit }:{edit:boolean}) => {
 
     <div className="intro">
        <div className="about text-center">
-       <h1 className="name --primary-color" data-editable={edit} contentEditable={edit}>Great Ihevueme</h1>
+       <h1 className="name --primary-color" data-editable={edit} contentEditable={edit}>Prajwal Shinde</h1>
         <h5 className='role' data-editable={edit} contentEditable={edit}>Senior Odogwu Developer</h5>
        </div>
 
