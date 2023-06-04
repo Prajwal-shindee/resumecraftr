@@ -21,14 +21,14 @@ export const Scoop = ({edit }:{edit:boolean}) => {
 
     <p data-editable={edit} contentEditable={edit}>
         <b>EMAIL: </b>
-        <span> great@Odogwu.com</span>
+        <span> prajwalshindeee@gmail.com</span>
     </p>
     <p data-editable={edit} contentEditable={edit}>
         <span> Lagos State, NG </span>
     </p>
     <p data-editable={edit} contentEditable={edit}>
         <b>Linkedln: </b>
-        <span> timmi-9128b239 </span>
+        <span> linkedin.com/in/prajwal-shindee/ </span>
     </p>
 
     </div>
