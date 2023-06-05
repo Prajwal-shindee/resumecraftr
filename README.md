@@ -42,7 +42,7 @@ yarn install
 
 Start the development server:
 
-yarn dev
+yarn dev or yarn start
 
 Open your browser and visit http://localhost:3000 to access ResumeCraftr.
 Deployment
