@@ -11,6 +11,7 @@ export default ({ changePreview, preview }) => {
   const [_init, setLoad] = useState(false);
   const [pdfFileName, setPdfFileName] = useState('resume.pdf');
   const [imgFileName, setImgFileName] = useState('resume.png');
+  const [newPdfFileName, setNewPdfFileName] = useState('');
 
   const Format = (command, value) => {
     document.execCommand(command, false, value);
@@ -40,6 +41,22 @@ export default ({ changePreview, preview }) => {
       });
       setImgFileName(newFileName);
     }
+  };
+
+  const handlePdfFileNameChange = (e) => {
+    setNewPdfFileName(e.target.value);
+  };
+
+  const handleDownloadPdf = () => {
+    const finalPdfFileName = newPdfFileName || pdfFileName;
+    setPdfFileName(finalPdfFileName);
+
+    setTimeout(() => {
+      const pdfDownloadLink = document.createElement('a');
+      pdfDownloadLink.href = '#';
+      pdfDownloadLink.download = finalPdfFileName;
+      pdfDownloadLink.click();
+    }, 100);
   };
 
   return (
@@ -75,7 +92,7 @@ export default ({ changePreview, preview }) => {
                 <button className="button" onClick={() => Format('insertUnorderedList')}><FaListUl /></button>
                 <button className="button" onClick={() => Format('justifyLeft')}><FaAlignLeft /></button>
                 <button className="button" onClick={() => Format('justifyCenter')}><FaAlignCenter /></button>
-                               <button className="button" onClick={() => Format('justifyRight')}><FaAlignRight /></button>
+                <button className="button" onClick={() => Format('justifyRight')}><FaAlignRight /></button>
                 <button className="button" onClick={() => Format('InsertHorizontalRule')}><FaRulerHorizontal /></button>
                 <button className="button" onClick={() => Format('indent')}><FaIndent /></button>
                 <button className="button" onClick={() => Format('outdent')}><FaOutdent /></button>
@@ -157,15 +174,42 @@ export default ({ changePreview, preview }) => {
         <li className="me">
           <p>
             Made with <FaHeart style={{ color: 'red' }} /> by{" "}
-            <a style={{ textDecoration: 'underline' }} target="_blank" href="https://prajwal-shinde.netlify.app/">
-              Prajwal-Shinde
-            </a>{" "}
+                   <a
+              href="https://resumecraftr.netlify.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Your Name
+            </a>
           </p>
         </li>
       </ul>
+
+      <div className="pdf-file-name">
+        {preview === false && (
+          <input
+            type="text"
+            value={newPdfFileName}
+            onChange={handlePdfFileNameChange}
+            placeholder="Enter PDF file name"
+          />
+        )}
+      </div>
+
+      {preview === false && (
+        <button
+          className="download-pdf"
+          onClick={handleDownloadPdf}
+        >
+          Download PDF
+        </button>
+      )}
     </div>
   );
 };
+
+
+
 
 
    
