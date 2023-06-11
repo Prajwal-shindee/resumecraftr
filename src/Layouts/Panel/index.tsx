@@ -6,13 +6,13 @@ import html2canvas from 'html2canvas';
 import ReactToPdf from 'react-to-pdf';
 import './panel.scss';
 
-export default ({ changePreview, preview }: { changePreview?: any, preview?: boolean }) => {
+export default ({ changePreview, preview }) => {
   const [foreColor, setForeColor] = useState('#000');
   const [_init, setLoad] = useState(false);
   const [pdfFileName, setPdfFileName] = useState('resume.pdf');
   const [imgFileName, setImgFileName] = useState('resume.png');
 
-  const Format = (command: string, value?: string) => {
+  const Format = (command, value) => {
     document.execCommand(command, false, value);
   };
 
@@ -20,10 +20,11 @@ export default ({ changePreview, preview }: { changePreview?: any, preview?: boo
     setLoad(true);
   }, []);
 
-  let targetRef = document.body.querySelector('#resume') as HTMLElement;
+  let targetRef = document.body.querySelector('#resume');
 
   useEffect(() => {
-    targetRef = document.body.querySelector('#resume') as HTMLElement;
+    targetRef = document.body.querySelector('#resume');
+
     console.clear();
   }, [_init, preview, targetRef]);
 
@@ -59,6 +60,7 @@ export default ({ changePreview, preview }: { changePreview?: any, preview?: boo
             <span className="text"> Templates</span>
           </Link>
         </li>
+
         {typeof preview !== 'undefined' && (
           <Fragment>
             <li className="option">
@@ -66,27 +68,27 @@ export default ({ changePreview, preview }: { changePreview?: any, preview?: boo
               <div className="tools">
                 <button className="button" onClick={() => Format('undo')}><FaUndo /></button>
                 <button className="button" onClick={() => Format('redo')}><FaRedo /></button>
-
                 <button className="button" onClick={() => Format('bold')}><FaBold /></button>
                 <button className="button" onClick={() => Format('underline')}><FaUnderline /></button>
                 <button className="button" onClick={() => Format('strikeThrough')}><FaStrikethrough /></button>
-
                 <button className="button" onClick={() => Format('insertOrderedList')}><FaListOl /></button>
                 <button className="button" onClick={() => Format('insertUnorderedList')}><FaListUl /></button>
-
                 <button className="button" onClick={() => Format('justifyLeft')}><FaAlignLeft /></button>
-                          <button className="button" onClick={() => Format('justifyCenter')}><FaAlignCenter /></button>
+                <button className="button" onClick={() => Format('justifyCenter')}><FaAlignCenter /></button>
                                <button className="button" onClick={() => Format('justifyRight')}><FaAlignRight /></button>
                 <button className="button" onClick={() => Format('InsertHorizontalRule')}><FaRulerHorizontal /></button>
-
                 <button className="button" onClick={() => Format('indent')}><FaIndent /></button>
                 <button className="button" onClick={() => Format('outdent')}><FaOutdent /></button>
-
                 <button className="button fore-color-tool" style={{ backgroundColor: foreColor }}>
-                  <input type="color" onChange={(e) => {
-                    setForeColor(e.target.value);
-                    Format('foreColor', e.target.value);
-                  }} name="foreColor" id="foreColor" />
+                  <input
+                    type="color"
+                    onChange={(e) => {
+                      setForeColor(e.target.value);
+                      Format('foreColor', e.target.value);
+                    }}
+                    name="foreColor"
+                    id="foreColor"
+                  />
                   <FaPalette />
                 </button>
               </div>
@@ -100,17 +102,20 @@ export default ({ changePreview, preview }: { changePreview?: any, preview?: boo
             </li>
 
             <li className="option glb-color">
-              <input type='color' onChange={(e) => {
-                const _colors = document.querySelectorAll('.--primary-color');
-                const _bg = document.querySelectorAll('.--primary-bg');
-                const _border = document.querySelectorAll('.--primary-border-color');
-                const _icon = document.querySelectorAll('.--icon-color');
+              <input
+                type="color"
+                onChange={(e) => {
+                  const _colors = document.querySelectorAll('.--primary-color');
+                  const _bg = document.querySelectorAll('.--primary-bg');
+                  const _border = document.querySelectorAll('.--primary-border-color');
+                  const _icon = document.querySelectorAll('.--icon-color');
 
-                _colors.forEach((color) => (color as HTMLElement).style.color = e.target.value);
-                _bg.forEach((color) => (color as HTMLElement).style.backgroundColor = e.target.value);
-                _border.forEach((color) => (color as HTMLElement).style.borderColor = e.target.value);
-                _icon.forEach((color) => (color as SVGElement).style.color = e.target.value);
-              }} />
+                  _colors.forEach((color) => (color as HTMLElement).style.color = e.target.value);
+                  _bg.forEach((color) => (color as HTMLElement).style.backgroundColor = e.target.value);
+                  _border.forEach((color) => (color as HTMLElement).style.borderColor = e.target.value);
+                  _icon.forEach((color) => (color as SVGElement).style.color = e.target.value);
+                }}
+              />
               <span>
                 <IoMdColorPalette />{" "}
               </span>
@@ -118,12 +123,18 @@ export default ({ changePreview, preview }: { changePreview?: any, preview?: boo
             </li>
           </Fragment>
         )}
+
         <li>
-          {(preview === false) && (
-            <ReactToPdf filename={pdfFileName} options={{
-              format: [330, 450],
-              unit: 'px'
-            }} targetRef={targetRef} scale={1}>
+          {preview === false && (
+            <ReactToPdf
+              filename={pdfFileName}
+              options={{
+                format: [330, 450],
+                unit: 'px'
+              }}
+              targetRef={targetRef}
+              scale={1}
+            >
               {({ toPdf }) => (
                 <button id="export" onClick={toPdf}>
                   <FaFilePdf />
@@ -133,8 +144,9 @@ export default ({ changePreview, preview }: { changePreview?: any, preview?: boo
             </ReactToPdf>
           )}
         </li>
+
         <li>
-          {(preview === false) && (
+          {preview === false && (
             <button id="export" onClick={exportImage} className="export-image">
               <FaFileImage />
               <span> Export Image</span>
@@ -143,7 +155,12 @@ export default ({ changePreview, preview }: { changePreview?: any, preview?: boo
         </li>
 
         <li className="me">
-          <p>Made with <FaHeart style={{ color: 'red' }} /> by <a style={{ textDecoration: 'underline' }} target='_blank' href="https://prajwal-shinde.netlify.app/">Prajwal-Shinde</a> </p>
+          <p>
+            Made with <FaHeart style={{ color: 'red' }} /> by{" "}
+            <a style={{ textDecoration: 'underline' }} target="_blank" href="https://prajwal-shinde.netlify.app/">
+              Prajwal-Shinde
+            </a>{" "}
+          </p>
         </li>
       </ul>
     </div>
