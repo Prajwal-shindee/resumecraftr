@@ -12,6 +12,8 @@ export default ({ changePreview, preview }: { changePreview?: any, preview?: boo
   const [_init, setLoad] = useState(false);
   const [pdfName, setPdfName] = useState('resume.pdf');
   const [imageName, setImageName] = useState('resume.png');
+  const [isRenamingPdf, setIsRenamingPdf] = useState(false);
+  const [isRenamingImage, setIsRenamingImage] = useState(false);
 
   const Format = (command: string, value?: string) => {
     document.execCommand(command, false, value);
@@ -36,6 +38,22 @@ export default ({ changePreview, preview }: { changePreview?: any, preview?: boo
       download.download = imageName;
       download.click();
     });
+  }
+
+  const handlePdfNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setPdfName(event.target.value);
+  }
+
+  const handleImageNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setImageName(event.target.value);
+  }
+
+  const handleRenamePdf = () => {
+    setIsRenamingPdf(!isRenamingPdf);
+  }
+
+  const handleRenameImage = () => {
+    setIsRenamingImage(!isRenamingImage);
   }
 
   return (
@@ -68,99 +86,100 @@ export default ({ changePreview, preview }: { changePreview?: any, preview?: boo
                 <button className="button" onClick={() => Format('underline')}><FaUnderline /></button>
                 <button className="button" onClick={() => Format('strikeThrough')}><FaStrikethrough /></button>
 
+<button className="button" onClick={() => Format('insertOrderedList')}><FaListOl /></button>
+<button className="button" onClick={() => Format('insertUnorderedList')}><FaListUl /></button>
 
-                <button className="button" onClick={() => Format('insertOrderedList')}><FaListOl /></button>
-                <button className="button" onClick={() => Format('insertUnorderedList')}><FaListUl /></button>
+<button className="button" onClick={() => Format('justifyLeft')}><FaAlignLeft /></button>
+<button className="button" onClick={() => Format('justifyCenter')}><FaAlignCenter /></button>
+<button className="button" onClick={() => Format('justifyRight')}><FaAlignRight /></button>
 
-                <button className="button" onClick={() => Format('justifyLeft')}><FaAlignLeft /></button>
-                <button className="button" onClick={() => Format('justifyCenter')}><FaAlignCenter /></button>
-                <button className="button" onClick={() => Format('justifyRight')}><FaAlignRight /></button>
+<button className="button" onClick={() => Format('InsertHorizontalRule')}><FaRulerHorizontal /></button>
 
+<button className="button" onClick={() => Format('indent')}><FaIndent /></button>
+<button className="button" onClick={() => Format('outdent')}><FaOutdent /></button>
 
-                              <button className="button" onClick={() => Format('InsertHorizontalRule')}><FaRulerHorizontal /></button>
-
-                <button className="button" onClick={() => Format('indent')}><FaIndent /></button>
-                <button className="button" onClick={() => Format('outdent')}><FaOutdent /></button>
-
-
-                <button className="button fore-color-tool" style={{ backgroundColor: foreColor }}>
-                  <input type="color" onChange={(e) => {
-                    setForeColor(e.target.value);
-                    Format('foreColor', e.target.value);
-                  }} name="foreColor" id="foreColor" />
-                  <FaPalette />
-                </button>
-
-
-              </div>
-            </li>
+<button className="button fore-color-tool" style={{ backgroundColor: foreColor }}>
+  <input type="color" onChange={(e) => {
+    setForeColor(e.target.value);
+    Format('foreColor', e.target.value);
+  }} name="foreColor" id="foreColor" />
+  <FaPalette />
+</button>
+</div>
+</li>
 
 
-            <li className="option" onClick={() => changePreview && changePreview()}>
-              <span>
-                {!preview ? <FaPen /> : <FaEye />} {" "}
-              </span>
-              <span className="text"> {!preview ? 'Edit' : 'Preview'} </span>
-            </li>
+<li className="option" onClick={() => changePreview && changePreview()}>
+<span>
+  {!preview ? <FaPen /> : <FaEye />} {" "}
+</span>
+<span className="text"> {!preview ? 'Edit' : 'Preview'} </span>
+</li>
 
 
-            <li className="option glb-color">
-              <input type='color' onChange={(e) => {
-                const _colors = document.querySelectorAll('.--primary-color');
-                const _bg = document.querySelectorAll('.--primary-bg');
-                const _border = document.querySelectorAll('.--primary-border-color');
-                const _icon = document.querySelectorAll('.--icon-color');
+<li className="option glb-color">
+<input type='color' onChange={(e) => {
+  const _colors = document.querySelectorAll('.--primary-color');
+  const _bg = document.querySelectorAll('.--primary-bg');
+  const _border = document.querySelectorAll('.--primary-border-color');
+  const _icon = document.querySelectorAll('.--icon-color');
 
-                console.log(_icon);
-                _colors.forEach((color) => (color as HTMLElement).style.color = e.target.value);
-                _bg.forEach((color) => (color as HTMLElement).style.backgroundColor = e.target.value);
-                _border.forEach((color) => (color as HTMLElement).style.borderColor = e.target.value);
-                _icon.forEach((color) => (color as SVGElement).style.color = e.target.value);
-              }} />
-              <span>
-                <IoMdColorPalette />{" "}
-              </span>
-              <span className="text"> Colors</span>
-            </li>
-          </Fragment>
+  console.log(_icon);
+  _colors.forEach((color) => (color as HTMLElement).style.color = e.target.value);
+  _bg.forEach((color) => (color as HTMLElement).style.backgroundColor = e.target.value);
+  _border.forEach((color) => (color as HTMLElement).style.borderColor = e.target.value);
+  _icon.forEach((color) => (color as SVGElement).style.color = e.target.value);
+}} />
+<span>
+  <IoMdColorPalette />{" "}
+</span>
+<span className="text"> Colors</span>
+</li>
+</Fragment>
+)}
+<li>
+{preview === false && (
+  <ReactToPdf filename={pdfName} options={{
+    format: [330, 450],
+    unit: 'px'
+  }} targetRef={targetRef} scale={1}>
+    {({ toPdf }) => (
+      <div>
+        {isRenamingPdf ? (
+          <input type="text" value={pdfName} onChange={handlePdfNameChange} />
+        ) : (
+          <p className="file-name" onClick={handleRenamePdf}>{pdfName}</p>
         )}
-        <li>
-          {preview === false && (
-            <ReactToPdf filename={pdfName} options={{
-              format: [330, 450],
-              unit: 'px'
-            }} targetRef={targetRef} scale={1}>
-              {({ toPdf }) => (
-                <div>
-                  <input type="text" value={pdfName} onChange={(e) => setPdfName(e.target.value)} />
-                  <button id="export" onClick={toPdf}>
-                    <FaFilePdf />
-                    <span> Export PDF</span>
-                  </button>
-                </div>
-              )}
-            </ReactToPdf>
-          )}
-        </li>
-        <li>
-          {preview === false && (
-            <div>
-              <input type="text" value={imageName} onChange={(e) => setImageName(e.target.value)} />
-              <button id="export" onClick={exportImage} className="export-image">
-                <FaFileImage />
-                <span> Export Image</span>
-              </button>
-            </div>
-          )}
-        </li>
+        <button id="export" onClick={toPdf}>
+          <FaFilePdf />
+          <span> Export PDF</span>
+        </button>
+      </div>
+    )}
+  </ReactToPdf>
+)}
+</li>
+<li>
+{preview === false && (
+  <div>
+    {isRenamingImage ? (
+      <input type="text" value={imageName} onChange={handleImageNameChange} />
+    ) : (
+      <p className="file-name" onClick={handleRenameImage}>{imageName}</p>
+    )}
+    <button id="export" onClick={exportImage} className="export-image">
+      <FaFileImage />
+      <span> Export Image</span>
+      </button>
+</div>
+)}
+</li>
+</ul>
+</div>
+);
+};
 
-        <li className="me">
-          <p>Made with <FaHeart style={{ color: 'red' }} />  by  <a style={{ textDecoration: 'underline' }} target='_blank' href="https://prajwal-shinde.netlify.app/">Prajwal-Shinde</a> </p>
-        </li>
-      </ul>
-    </div>
-  )
-}
+
 
    
    
